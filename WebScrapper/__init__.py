@@ -16,7 +16,7 @@ def report():
         word = word.lower()
         fromdb = db.get(word)
         if fromdb:
-            pass
+            jobs = fromdb
         else:
             jobs = get_jobs(word)
             db[word] = jobs
