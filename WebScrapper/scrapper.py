@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 LIMIT = 50
-
+MAX_PAGE = 2
 
 
 def extract_pages(url):
@@ -51,5 +51,7 @@ def extract_jobs(last_page, url):
 def get_jobs(word):
     url = f"https://www.indeed.com/jobs?q={word}&limit={LIMIT}"
     last_pages = extract_pages(url)
+    if last_pages > MAX_PAGE:
+        last_pages = MAX_PAGE
     jobs = extract_jobs(last_pages, url)
     return jobs
