@@ -22,4 +22,7 @@ def report():
             db[word] = jobs
     else:
         return redirect("/")
-    return render_template("report.html", word=word, results_number=len(jobs))
+    return render_template("report.html",
+                           word=word,
+                           results_number=len(jobs),
+                           jobs=jobs)
